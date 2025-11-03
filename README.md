@@ -1,7 +1,7 @@
 
 ## Agent Training Kit
-### Agent Training Kit let developers build Trainable Streands Agent in just a few lines of code.
-Agent Training Kit (ATK) makes [Strands Agents](https://github.com/strands-agents/sdk-python) trainable — agents learn from their tool usage and task execution results, improving through experience. ATK adapts [rLLM](https://github.com/rllm-org/rllm) for Strands Agents, handling agent execution, trajectory collection, and reinforcement learning. Agent Training Kit makes existing Strands Agent inference code trainable without modifications—just wrap your agents with ATK and start learning.
+### Agent Training Kit lets developers build trainable Strands Agents in just a few lines of code.
+Agent Training Kit (ATK) makes [Strands Agents](https://github.com/strands-agents/sdk-python) trainable — agents learn from their tool usage and task execution results, improving through experience. ATK adapts [rLLM](https://github.com/rllm-org/rllm) for Strands Agents, handling agent execution, trajectory collection, and reinforcement learning.
 
 ![Description of image](./assets/architecture.svg)
 
@@ -27,9 +27,9 @@ Python file names match the component labels shown in Figure 1.
 │       └── train_deepcoder_with_strands.sh # training bash script
 ├── modified_rllm_files
 │   ├── agent_execution_engine.py   # rLLM execution engine for training agents
-│   └── agent_ppo_trainer.py.       # rLLM agent trainer
+│   └── agent_ppo_trainer.py        # rLLM agent trainer
 ├── modified_verl_files
-│   └── vllm_async_server.py.       # rLLM/veRL vLLM async server
+│   └── vllm_async_server.py        # rLLM/veRL vLLM async server
 └── setup.py                        # setup python modules
 ```
 
@@ -124,12 +124,12 @@ During training on coding tasks, Strands Agents decide when to test their code u
 | Runtime errors | 261 | 41.8% |
 | Other errors | 3 | 0.5% |
 
-Agents called the testing tool in 11.4% of cases. When agents choose to test their code, over half (52.2%) pass immediately. The remaining catches critical issues: runtime errors (41.8%) and wrong outputs (5.6%) that would have resulted in failed submissions. This early error detection allows agents to debug and refine their solutions iteratively.
+Agents called the testing tool in 11.4% of cases. When agents choose to test their code, over half (52.2%) pass immediately. The remaining catch critical issues: runtime errors (41.8%) and wrong outputs (5.6%) that would have resulted in failed submissions. This early error detection allows agents to debug and refine their solutions iteratively.
 
 
 ## Trajectories 🔄
 
-We provide two example trajectories demonstrating how trained agents interact with tools during problem-solving. The [two-step trajectory](examples/deepcoder/exp_traj_2_steps.json) shows a straightforward path where the agent's initial solution passes testing immediately, while the [three-step trajectory](examples/deepcoder/exp_traj_3_steps.json) demonstrates the agent's ability to recover from errors—catching an indentation issue through tool feedback, fixing it, and then submitting the corrected code. These trajectories showcase the complete workflow illustrated in the README figure above.
+We provide two example trajectories demonstrating how trained agents interact with tools during problem-solving. The [two-step trajectory](examples/deepcoder/exp_traj_2_steps.json) shows a straightforward path where the agent's initial solution passes testing immediately, while the [three-step trajectory](examples/deepcoder/exp_traj_3_steps.json) demonstrates the agent's ability to recover from errors—catching an indentation issue through tool feedback, fixing it, and then submitting the corrected code. 
 
 Here is what the three-step (`init-fix-submit`) trajectory looks like:
 
@@ -168,7 +168,7 @@ Here is what the three-step (`init-fix-submit`) trajectory looks like:
 
 ## Contributing
 
-We welcome contributions and are actively gathering community feedback. See [CONTRIBUTING.md](CONTRIBUTING.md) for:
+We welcome contributions and we are actively gathering community feedback. See [CONTRIBUTING.md](CONTRIBUTING.md) for:
 - Bug reports & feature requests
 - Development setup & PRs
 - Code of conduct & security
