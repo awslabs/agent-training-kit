@@ -1,0 +1,216 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="598pt" height="635pt" viewBox="0.00 0.00 598.00 635.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 630.8)">
+<title>AgentBoostDataflow</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-630.8 594,-630.8 594,4 -4,4"/>
+
+<g id="how_it_works" class="node">
+<text xml:space="preserve" text-anchor="start" x="10" y="-555" font-family="Arial" font-size="14.00" font-weight="bold">How It Works</text>
+<text xml:space="preserve" text-anchor="start" x="10" y="-530" font-family="Monaco" font-size="11.00">agents = init(tools)</text>
+<text xml:space="preserve" text-anchor="start" x="10" y="-510" font-family="Monaco" font-size="11.00">while trainer.training():</text>
+<text xml:space="preserve" text-anchor="start" x="10" y="-490" font-family="Monaco" font-size="11.00">  traces = agents.run(prompt)</text>
+<text xml:space="preserve" text-anchor="start" x="10" y="-470" font-family="Monaco" font-size="11.00">  trajectories = replay(traces)</text>
+<text xml:space="preserve" text-anchor="start" x="10" y="-450" font-family="Monaco" font-size="11.00">  model.train(trajectories)</text>
+</g>
+
+<!-- Agent Training Kit title (bottom right) -->
+<g id="agent_training_kit" class="node">
+<text xml:space="preserve" text-anchor="middle" x="100" y="-590" font-family="Arial" font-size="18.00" font-weight="bold">Agent Training Kit</text>
+</g>
+
+<text xml:space="preserve" text-anchor="middle" x="410" y="-132" font-family="Arial" font-size="18.00" font-style="italic" fill="red" font-weight="bold">Build Trainable Strands Agents</text>
+
+
+<g id="clust1" class="cluster">
+<title>cluster_training</title>
+<path fill="none" stroke="gray" stroke-dasharray="5,2" d="M216,-213.6C216,-213.6 570,-213.6 570,-213.6 576,-213.6 582,-219.6 582,-225.6 582,-225.6 582,-395.2 582,-395.2 582,-401.2 576,-407.2 570,-407.2 570,-407.2 216,-407.2 216,-407.2 210,-407.2 204,-401.2 204,-395.2 204,-395.2 204,-225.6 204,-225.6 204,-219.6 210,-213.6 216,-213.6"/>
+<text xml:space="preserve" text-anchor="middle" x="393" y="-390.6" font-family="Times,serif" font-size="14.00"> rLLM Training Framework</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_agents</title>
+<path fill="none" stroke="gray" stroke-dasharray="5,2" d="M20,-8C20,-8 184,-8 184,-8 190,-8 196,-14 196,-20 196,-20 196,-395.2 196,-395.2 196,-401.2 190,-407.2 184,-407.2 184,-407.2 20,-407.2 20,-407.2 14,-407.2 8,-401.2 8,-395.2 8,-395.2 8,-20 8,-20 8,-14 14,-8 20,-8"/>
+<text xml:space="preserve" text-anchor="middle" x="102" y="-390.6" font-family="Times,serif" font-size="14.00">AgentBoost</text>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_example</title>
+<path fill="none" stroke="gray" stroke-dasharray="5,2" d="M232,-442C232,-442 446,-442 446,-442 452,-442 458,-448 458,-454 458,-454 458,-606.8 458,-606.8 458,-612.8 452,-618.8 446,-618.8 446,-618.8 232,-618.8 232,-618.8 226,-618.8 220,-612.8 220,-606.8 220,-606.8 220,-454 220,-454 220,-448 226,-442 232,-442"/>
+<text xml:space="preserve" text-anchor="middle" x="339" y="-602.2" font-family="Times,serif" font-size="14.00">Example</text>
+</g>
+<!-- train_script -->
+<g id="node1" class="node">
+<title>train_script</title>
+<path fill="#ffebcd" stroke="#2c3e50" d="M438.12,-491.6C438.12,-491.6 239.88,-491.6 239.88,-491.6 233.88,-491.6 227.88,-485.6 227.88,-479.6 227.88,-479.6 227.88,-462 227.88,-462 227.88,-456 233.88,-450 239.88,-450 239.88,-450 438.12,-450 438.12,-450 444.12,-450 450.12,-456 450.12,-462 450.12,-462 450.12,-479.6 450.12,-479.6 450.12,-485.6 444.12,-491.6 438.12,-491.6"/>
+<text xml:space="preserve" text-anchor="middle" x="339" y="-475" font-family="Arial" font-size="14.00" fill="black">train_deepcoder_with_strands.py</text>
+<text xml:space="preserve" text-anchor="middle" x="339" y="-458.2" font-family="Arial" font-size="14.00">(Entry Point)</text>
+</g>
+<!-- agent_trainer -->
+<g id="node2" class="node">
+<title>agent_trainer</title>
+<path fill="#d4edda" stroke="#2c3e50" d="M401.16,-374.4C401.16,-374.4 276.84,-374.4 276.84,-374.4 270.84,-374.4 264.84,-368.4 264.84,-362.4 264.84,-362.4 264.84,-344.8 264.84,-344.8 264.84,-338.8 270.84,-332.8 276.84,-332.8 276.84,-332.8 401.16,-332.8 401.16,-332.8 407.16,-332.8 413.16,-338.8 413.16,-344.8 413.16,-344.8 413.16,-362.4 413.16,-362.4 413.16,-368.4 407.16,-374.4 401.16,-374.4"/>
+<text xml:space="preserve" text-anchor="middle" x="339" y="-357.8" font-family="Arial" font-size="14.00">agent_ppo_trainer.py</text>
+<text xml:space="preserve" text-anchor="middle" x="339" y="-341" font-family="Arial" font-size="14.00">(AgentTrainer)</text>
+</g>
+<!-- train_script&#45;&gt;agent_trainer -->
+<g id="edge1" class="edge">
+<title>train_script-&gt;agent_trainer</title>
+<path fill="none" stroke="black" d="M339,-449.73C339,-432.25 339,-406.59 339,-386.32"/>
+<polygon fill="black" stroke="black" points="342.5,-386.34 339,-376.34 335.5,-386.34 342.5,-386.34"/>
+<text xml:space="preserve" text-anchor="middle" x="365.84" y="-419.4" font-family="Arial" font-size="14.00"> 1. starts</text>
+</g>
+<!-- agent_trainer&#45;&gt;agent_trainer -->
+<g id="edge13" class="edge">
+<title>agent_trainer-&gt;agent_trainer</title>
+<path fill="none" stroke="black" d="M413.49,-362.96C424.07,-361.44 431.16,-358.32 431.16,-353.6 431.16,-350.8 428.66,-348.56 424.41,-346.88"/>
+<polygon fill="black" stroke="black" points="425.5,-343.55 414.96,-344.6 423.86,-350.35 425.5,-343.55"/>
+<text xml:space="preserve" text-anchor="middle" x="484.08" y="-357.8" font-family="Arial" font-size="14.00"> 8. compute loss </text>
+<text xml:space="preserve" text-anchor="middle" x="484.08" y="-341" font-family="Arial" font-size="14.00"> update model</text>
+</g>
+<!-- exec_engine -->
+<g id="node3" class="node">
+<title>exec_engine</title>
+<path fill="#cce5ff" stroke="#2c3e50" d="M387.63,-263.2C387.63,-263.2 224.37,-263.2 224.37,-263.2 218.37,-263.2 212.37,-257.2 212.37,-251.2 212.37,-251.2 212.37,-233.6 212.37,-233.6 212.37,-227.6 218.37,-221.6 224.37,-221.6 224.37,-221.6 387.63,-221.6 387.63,-221.6 393.63,-221.6 399.63,-227.6 399.63,-233.6 399.63,-233.6 399.63,-251.2 399.63,-251.2 399.63,-257.2 393.63,-263.2 387.63,-263.2"/>
+<text xml:space="preserve" text-anchor="middle" x="306" y="-246.6" font-family="Arial" font-size="14.00">agent_execution_engine.py</text>
+<text xml:space="preserve" text-anchor="middle" x="306" y="-229.8" font-family="Arial" font-size="14.00">(AsyncExecutionEngine)</text>
+</g>
+<!-- agent_trainer&#45;&gt;exec_engine -->
+<g id="edge2" class="edge">
+<title>agent_trainer-&gt;exec_engine</title>
+<path fill="none" stroke="black" d="M264.52,-340.02C251.44,-334.42 239.41,-326.37 231.21,-314.8 222.57,-302.62 223.38,-293.92 231.21,-281.2 233.58,-277.34 236.49,-273.85 239.76,-270.72"/>
+<polygon fill="black" stroke="black" points="241.8,-273.57 247.38,-264.56 237.4,-268.12 241.8,-273.57"/>
+<text xml:space="preserve" text-anchor="middle" x="256.1" y="-293.8" font-family="Arial" font-size="14.00">2. starts</text>
+</g>
+<!-- vllm_server -->
+<g id="node9" class="node">
+<title>vllm_server</title>
+<path fill="#d6d8db" stroke="#2c3e50" d="M556.3,-263.2C556.3,-263.2 429.7,-263.2 429.7,-263.2 423.7,-263.2 417.7,-257.2 417.7,-251.2 417.7,-251.2 417.7,-233.6 417.7,-233.6 417.7,-227.6 423.7,-221.6 429.7,-221.6 429.7,-221.6 556.3,-221.6 556.3,-221.6 562.3,-221.6 568.3,-227.6 568.3,-233.6 568.3,-233.6 568.3,-251.2 568.3,-251.2 568.3,-257.2 562.3,-263.2 556.3,-263.2"/>
+<text xml:space="preserve" text-anchor="middle" x="493" y="-246.6" font-family="Arial" font-size="14.00">vllm_async_server.py</text>
+<text xml:space="preserve" text-anchor="middle" x="493" y="-229.8" font-family="Arial" font-size="14.00">(vLLM Async Server)</text>
+</g>
+<!-- agent_trainer&#45;&gt;vllm_server -->
+<g id="edge9" class="edge">
+<title>agent_trainer-&gt;vllm_server</title>
+<path fill="none" stroke="black" d="M368.28,-332.44C375.11,-327.1 382.11,-321.06 388,-314.8 400.38,-301.65 397.06,-292.87 410.84,-281.2 416.11,-276.74 421.99,-272.7 428.12,-269.06"/>
+<polygon fill="black" stroke="black" points="429.51,-272.29 436.58,-264.4 426.13,-266.16 429.51,-272.29"/>
+<text xml:space="preserve" text-anchor="middle" x="447.42" y="-293.8" font-family="Arial" font-size="14.00">7. inference</text>
+</g>
+<!-- exec_engine&#45;&gt;agent_trainer -->
+<g id="edge12" class="edge">
+<title>exec_engine-&gt;agent_trainer</title>
+<path fill="none" stroke="blue" stroke-dasharray="5,2" d="M301.32,-263.51C298.87,-278.23 297.54,-298.41 303.97,-314.8 305.16,-317.85 306.73,-320.79 308.54,-323.61"/>
+<polygon fill="blue" stroke="blue" points="305.66,-325.6 314.52,-331.41 311.21,-321.34 305.66,-325.6"/>
+<text xml:space="preserve" text-anchor="middle" x="345.98" y="-293.8" font-family="Arial" font-size="14.00" fill="blue">6. trajectories</text>
+</g>
+<!-- process_pool -->
+<g id="node6" class="node">
+<title>process_pool</title>
+<path fill="#f8d7da" stroke="#2c3e50" d="M175.82,-374.4C175.82,-374.4 28.18,-374.4 28.18,-374.4 22.18,-374.4 16.18,-368.4 16.18,-362.4 16.18,-362.4 16.18,-344.8 16.18,-344.8 16.18,-338.8 22.18,-332.8 28.18,-332.8 28.18,-332.8 175.82,-332.8 175.82,-332.8 181.82,-332.8 187.82,-338.8 187.82,-344.8 187.82,-344.8 187.82,-362.4 187.82,-362.4 187.82,-368.4 181.82,-374.4 175.82,-374.4"/>
+<text xml:space="preserve" text-anchor="middle" x="102" y="-357.8" font-family="Arial" font-size="14.00">strands_process_pool.py</text>
+<text xml:space="preserve" text-anchor="middle" x="102" y="-341" font-family="Arial" font-size="14.00">(Agent Pool)</text>
+</g>
+<!-- exec_engine&#45;&gt;process_pool -->
+<g id="edge3" class="edge">
+<title>exec_engine-&gt;process_pool</title>
+<path fill="none" stroke="black" d="M212.24,-261.72C188.03,-267.61 165.89,-274.39 155.63,-281.2 140,-291.59 127.16,-308.12 117.97,-322.66"/>
+<polygon fill="black" stroke="black" points="115.1,-320.63 112.97,-331.01 121.11,-324.22 115.1,-320.63"/>
+<text xml:space="preserve" text-anchor="middle" x="188.32" y="-293.8" font-family="Arial" font-size="14.00"> 3. creates</text>
+</g>
+<!-- strands_agent -->
+<g id="node4" class="node">
+<title>strands_agent</title>
+<path fill="#e2d5f1" stroke="#2c3e50" d="M175.87,-152C175.87,-152 32.13,-152 32.13,-152 26.13,-152 20.13,-146 20.13,-140 20.13,-140 20.13,-122.4 20.13,-122.4 20.13,-116.4 26.13,-110.4 32.13,-110.4 32.13,-110.4 175.87,-110.4 175.87,-110.4 181.87,-110.4 187.87,-116.4 187.87,-122.4 187.87,-122.4 187.87,-140 187.87,-140 187.87,-146 181.87,-152 175.87,-152"/>
+<text xml:space="preserve" text-anchor="middle" x="104" y="-135.4" font-family="Arial" font-size="14.00">strands_agent.py</text>
+<text xml:space="preserve" text-anchor="middle" x="104" y="-118.6" font-family="Arial" font-size="14.00">(StrandsAgent Wrapper)</text>
+</g>
+<!-- strands_agent&#45;&gt;exec_engine -->
+<g id="edge11" class="edge">
+<title>strands_agent-&gt;exec_engine</title>
+<path fill="none" stroke="blue" stroke-dasharray="5,2" d="M161.52,-152.49C174.42,-157.68 187.87,-163.62 200,-170 224.58,-182.92 250.47,-200.28 270.51,-214.64"/>
+<polygon fill="blue" stroke="blue" points="268.19,-217.28 278.33,-220.32 272.3,-211.62 268.19,-217.28"/>
+<text xml:space="preserve" text-anchor="middle" x="280.41" y="-182.6" font-family="Arial" font-size="14.00" fill="blue">6. traces</text>
+</g>
+<!-- strands_env -->
+<g id="node5" class="node">
+<title>strands_env</title>
+<path fill="#fff3cd" stroke="#2c3e50" d="M355.69,-57.6C355.69,-57.6 228.31,-57.6 228.31,-57.6 222.31,-57.6 216.31,-51.6 216.31,-45.6 216.31,-45.6 216.31,-28 216.31,-28 216.31,-22 222.31,-16 228.31,-16 228.31,-16 355.69,-16 355.69,-16 361.69,-16 367.69,-22 367.69,-28 367.69,-28 367.69,-45.6 367.69,-45.6 367.69,-51.6 361.69,-57.6 355.69,-57.6"/>
+<text xml:space="preserve" text-anchor="middle" x="292" y="-41" font-family="Arial" font-size="14.00">strands_env.py</text>
+<text xml:space="preserve" text-anchor="middle" x="292" y="-24.2" font-family="Arial" font-size="14.00">(Replay Environment)</text>
+</g>
+<!-- strands_agent&#45;&gt;strands_env -->
+<g id="edge6" class="edge">
+<title>strands_agent-&gt;strands_env</title>
+<path fill="none" stroke="blue" stroke-dasharray="5,2" d="M162.45,-109.93C175.11,-104.79 188.22,-98.87 200,-92.4 211.12,-86.29 212.36,-82.4 223.08,-75.6 229.5,-71.52 236.4,-67.43 243.26,-63.52"/>
+<polygon fill="blue" stroke="blue" points="244.88,-66.62 251.9,-58.68 241.46,-60.51 244.88,-66.62"/>
+<text xml:space="preserve" text-anchor="middle" x="253.04" y="-79.8" font-family="Arial" font-size="14.00" fill="blue">5. actions</text>
+</g>
+<!-- code_tool -->
+<g id="node8" class="node">
+<title>code_tool</title>
+<path fill="#d1ecf1" stroke="#2c3e50" d="M169.64,-57.6C169.64,-57.6 38.36,-57.6 38.36,-57.6 32.36,-57.6 26.36,-51.6 26.36,-45.6 26.36,-45.6 26.36,-28 26.36,-28 26.36,-22 32.36,-16 38.36,-16 38.36,-16 169.64,-16 169.64,-16 175.64,-16 181.64,-22 181.64,-28 181.64,-28 181.64,-45.6 181.64,-45.6 181.64,-51.6 175.64,-57.6 169.64,-57.6"/>
+<text xml:space="preserve" text-anchor="middle" x="104" y="-41" font-family="Arial" font-size="14.00">strands_code_tool.py</text>
+<text xml:space="preserve" text-anchor="middle" x="104" y="-24.2" font-family="Arial" font-size="14.00">(Code Execution Tool)</text>
+</g>
+<!-- strands_agent&#45;&gt;code_tool -->
+<g id="edge8" class="edge">
+<title>strands_agent-&gt;code_tool</title>
+<path fill="none" stroke="black" d="M104,-110.15C104,-98.16 104,-82.67 104,-69.1"/>
+<polygon fill="black" stroke="black" points="107.5,-69.32 104,-59.32 100.5,-69.32 107.5,-69.32"/>
+<text xml:space="preserve" text-anchor="middle" x="127.73" y="-79.8" font-family="Arial" font-size="14.00"> 4. calls</text>
+</g>
+<!-- strands_agent&#45;&gt;vllm_server -->
+<g id="edge15" class="edge">
+<title>strands_agent-&gt;vllm_server</title>
+<path fill="none" stroke="black" d="M188.19,-143.79C226.11,-149.97 271.21,-158.68 311,-170 354.83,-182.47 402.74,-201.5 438.4,-216.77"/>
+<polygon fill="black" stroke="black" points="436.63,-219.82 447.19,-220.58 439.4,-213.4 436.63,-219.82"/>
+<text xml:space="preserve" text-anchor="middle" x="443.07" y="-191" font-family="Arial" font-size="14.00">4. rollout</text>
+</g>
+<!-- strands_env&#45;&gt;strands_agent -->
+<g id="edge7" class="edge">
+<title>strands_env-&gt;strands_agent</title>
+<path fill="none" stroke="blue" stroke-dasharray="5,2" d="M293.88,-57.9C293.82,-69.43 291.63,-83.37 283,-92.4 270.82,-105.14 235.54,-113.94 199.48,-119.82"/>
+<polygon fill="blue" stroke="blue" points="199.14,-116.33 189.79,-121.32 200.21,-123.25 199.14,-116.33"/>
+<text xml:space="preserve" text-anchor="middle" x="333.79" y="-79.8" font-family="Arial" font-size="14.00" fill="blue"> obs, rewards</text>
+</g>
+<!-- worker -->
+<g id="node7" class="node">
+<title>worker</title>
+<path fill="#f8d7da" stroke="#2c3e50" d="M145.19,-263.2C145.19,-263.2 38.81,-263.2 38.81,-263.2 32.81,-263.2 26.81,-257.2 26.81,-251.2 26.81,-251.2 26.81,-233.6 26.81,-233.6 26.81,-227.6 32.81,-221.6 38.81,-221.6 38.81,-221.6 145.19,-221.6 145.19,-221.6 151.19,-221.6 157.19,-227.6 157.19,-233.6 157.19,-233.6 157.19,-251.2 157.19,-251.2 157.19,-257.2 151.19,-263.2 145.19,-263.2"/>
+<text xml:space="preserve" text-anchor="middle" x="92" y="-246.6" font-family="Arial" font-size="14.00">strands_worker.py</text>
+<text xml:space="preserve" text-anchor="middle" x="92" y="-229.8" font-family="Arial" font-size="14.00">(Agent Worker)</text>
+</g>
+<!-- process_pool&#45;&gt;worker -->
+<g id="edge4" class="edge">
+<title>process_pool-&gt;worker</title>
+<path fill="none" stroke="black" d="M67.29,-332.41C61.55,-327.43 56.39,-321.54 53.08,-314.8 46.49,-301.4 47.26,-294.95 53.08,-281.2 54.43,-278.01 56.19,-274.95 58.23,-272.06"/>
+<polygon fill="black" stroke="black" points="60.76,-274.48 64.49,-264.56 55.39,-269.99 60.76,-274.48"/>
+<text xml:space="preserve" text-anchor="middle" x="86.54" y="-293.8" font-family="Arial" font-size="14.00"> 3. spawns</text>
+</g>
+<!-- worker&#45;&gt;strands_agent -->
+<g id="edge5" class="edge">
+<title>worker-&gt;strands_agent</title>
+<path fill="none" stroke="black" d="M94.23,-221.12C96,-205.03 98.5,-182.25 100.53,-163.78"/>
+<polygon fill="black" stroke="black" points="104,-164.2 101.62,-153.88 97.05,-163.44 104,-164.2"/>
+<text xml:space="preserve" text-anchor="middle" x="123.12" y="-182.6" font-family="Arial" font-size="14.00"> 3. runs</text>
+</g>
+<!-- vllm_server&#45;&gt;agent_trainer -->
+<g id="edge10" class="edge">
+<title>vllm_server-&gt;agent_trainer</title>
+<path fill="none" stroke="blue" stroke-dasharray="5,2" d="M496.06,-263.38C497.3,-279.21 496.2,-300.91 484,-314.8 475.33,-324.68 450.9,-332.65 424.51,-338.68"/>
+<polygon fill="blue" stroke="blue" points="424.03,-335.2 415,-340.74 425.52,-342.04 424.03,-335.2"/>
+<text xml:space="preserve" text-anchor="middle" x="529.85" y="-302.2" font-family="Arial" font-size="14.00" fill="blue"> 7. token</text>
+<text xml:space="preserve" text-anchor="middle" x="529.85" y="-285.4" font-family="Arial" font-size="14.00" fill="blue"> probability</text>
+</g>
+<!-- prepare_data -->
+<g id="node10" class="node">
+<title>prepare_data</title>
+<path fill="#ffeaa7" stroke="#2c3e50" stroke-dasharray="5,2" d="M422.96,-586C422.96,-586 255.04,-586 255.04,-586 249.04,-586 243.04,-580 243.04,-574 243.04,-574 243.04,-556.4 243.04,-556.4 243.04,-550.4 249.04,-544.4 255.04,-544.4 255.04,-544.4 422.96,-544.4 422.96,-544.4 428.96,-544.4 434.96,-550.4 434.96,-556.4 434.96,-556.4 434.96,-574 434.96,-574 434.96,-580 428.96,-586 422.96,-586"/>
+<text xml:space="preserve" text-anchor="middle" x="339" y="-569.4" font-family="Arial" font-size="14.00">prepare_deepcoder_data.py</text>
+<text xml:space="preserve" text-anchor="middle" x="339" y="-552.6" font-family="Arial" font-size="14.00">(Data Preparation)</text>
+</g>
+<!-- prepare_data&#45;&gt;train_script -->
+<g id="edge14" class="edge">
+<title>prepare_data-&gt;train_script</title>
+<path fill="none" stroke="blue" stroke-dasharray="5,2" d="M339,-544.15C339,-532.16 339,-516.67 339,-503.1"/>
+<polygon fill="blue" stroke="blue" points="342.5,-503.32 339,-493.32 335.5,-503.32 342.5,-503.32"/>
+<text xml:space="preserve" text-anchor="middle" x="371.69" y="-513.8" font-family="Arial" font-size="14.00" fill="blue"> 0. dataset</text>
+</g>
+</g>
+</svg>
