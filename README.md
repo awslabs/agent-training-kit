@@ -46,24 +46,34 @@ cd rllm
 git checkout 1fc3c4babfe9a63d809d6bf9a9011df777f30c91
 git submodule update --init --recursive
 
+# Create constraints file to lock Pytorch version
+cat > constraints.txt << EOF
+torch==2.7.1
+torchvision==0.22.1
+torchaudio==2.7.1
+torchao==0.12.0
+EOF
+
 uv pip install torch==2.7.1 torchvision==0.22.1 torchaudio==2.7.1 torchao==0.12.0
 
 # Verify CUDA setup
 python -c "import torch; print('PyTorch version:', torch.__version__); print('CUDA available:', torch.cuda.is_available())"
 
-uv pip install -e ./verl
+uv pip install -e ./verl --constraint constraints.txt
 uv pip install git+https://github.com/Dao-AILab/flash-attention.git --no-build-isolation
-uv pip install -e .
+uv pip install -e . --constraint constraints.txt
 
 # Verify vLLM
 python -c "import vllm; print('vLLM imported successfully')"
+# Verify Flash Attention
+python -c "import flash_attn; print('flash-attn imported successfully')"
 
-uv pip install 'strands-agents[openai]' strands-agents-tools
+uv pip install 'strands-agents[openai]' strands-agents-tools --constraint constraints.txt
 
 cd ..
 git clone https://github.com/awslabs/agent-training-kit
 cd agent-training-kit
-uv pip install -e .
+uv pip install -e . --constraint ../rllm/constraints.txt
 python apply_patches.py
 
 export HF_TOKEN=<YOUR_HF_TOKEN>
