@@ -235,8 +235,7 @@ class StrandsAgent(BaseAgent):
             self._replay_conversations = [full_conversation]
         
         if current_conversation and len(current_conversation) > len(base_messages):
-            if len(self._replay_conversations) == 0 or \
-                    len(current_conversation) > len(self._replay_conversations[-1]):
+            if len(current_conversation) > len(self._replay_conversations[-1]):
                 self._replay_conversations.append(current_conversation.copy())
     
     def is_replay_complete(self) -> bool:
