@@ -114,9 +114,9 @@ class StrandsProcessPool:
                 try:
                     result = json.loads(stdout_data.decode())
                     result["execution_time"] = execution_time
-                    
-                    if stderr_data and stderr_data.decode().strip():
-                        print(f"DEBUG:CREATE_EXEC - Process stderr: {stderr_data.decode().strip()}")
+                    if not result.get("success", True):
+                        if stderr_data and stderr_data.decode().strip():
+                            print(f"DEBUG:CREATE_EXEC - Process stderr: {stderr_data.decode().strip()}")
                     
                     return result
                     

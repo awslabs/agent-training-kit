@@ -80,9 +80,9 @@ export HF_TOKEN=<YOUR_HF_TOKEN>
 wandb login
 ```
 
-## Quick Start 🎯
+## Quick Start - DeepCoder 🎯
 
-### Prepare the dataset
+### Prepare the dataset for coding
 ```bash
 python examples/deepcoder/prepare_deepcoder_data.py
 ```
@@ -90,6 +90,29 @@ python examples/deepcoder/prepare_deepcoder_data.py
 ### Run the coding example
 ```bash
 bash examples/deepcoder/train_deepcoder_with_strands.sh
+```
+
+## Quick Start - Tau2-Bench
+Checkout the [Tau2 README.md](examples/tau2/README.md)
+
+### Install tau2-bench
+```bash
+cd ..
+git clone https://github.com/sierra-research/tau2-bench.git
+cd tau2-bench/
+uv pip install -e . --constraint ../rllm/constraints.txt
+export TAU2_DATA_DIR=$PWD/data/tau2/domains
+```
+
+### Prepare the dataset for tau2-bench
+```bash
+cd ../agent-training-kit
+python examples/tau2/prepare_tau2_data.py
+```
+
+### Run the Tau2-bench example
+```bash
+bash examples/tau2/train_tau2_with_strands.sh
 ```
 
 ### Preliminary Results
@@ -111,6 +134,24 @@ Strands Agents show performance improvement within 20 steps of training (640 pro
 | Training Rewards | Validation Score|
 |:---------------:|:------------------:|
 | ![Math Training](./assets/plot_reward_math.png) | ![Math Validation](./assets/plot_val_math.png) |
+
+Performance improved within 20 training steps (97 problems) on retail and airline tasks.
+
+**Tau-2 Retail and Airline**
+- Base model - [Qwen/Qwen3-1.7B](https://huggingface.co/Qwen/Qwen3-1.7B)
+- Validation - [Retail Test Set](https://github.com/sierra-research/tau2-bench/blob/main/data/tau2/domains/retail/split_tasks.json) and [Airline Test Set](https://github.com/sierra-research/tau2-bench/blob/main/data/tau2/domains/airline/split_tasks.json)
+
+| Training Rewards | Validation Score|
+|:---------------:|:------------------:|
+| ![Math Training](./assets/plot_reward_tau2.png) | ![Math Validation](./assets/plot_val_tau2.png) |
+
+**Tau-2 Retail and Airline**
+- Base model - [Qwen/Qwen3-4B-Instruct-2507](https://huggingface.co/Qwen/Qwen3-4B-Instruct-2507)
+- Validation - [Retail Test Set](https://github.com/sierra-research/tau2-bench/blob/main/data/tau2/domains/retail/split_tasks.json) and [Airline Test Set](https://github.com/sierra-research/tau2-bench/blob/main/data/tau2/domains/airline/split_tasks.json)
+
+| Training Rewards | Validation Score|
+|:---------------:|:------------------:|
+| ![Math Training](./assets/plot_reward_tau2_4B.png) | ![Math Validation](./assets/plot_val_tau2_4B.png) |
 
 
 ## Tool Usage  🔧

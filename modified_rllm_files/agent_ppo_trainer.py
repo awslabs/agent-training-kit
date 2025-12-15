@@ -199,6 +199,12 @@ class AgentPPOTrainer(RayPPOTrainer):
                         batch = self._pad_dataproto_to_world_size(batch=batch)
                     else:
                         final_gen_batch_output, generate_metrics = self.generate_agent_trajectory(timing_raw=timing_raw, meta_info=batch.meta_info)
+                        # Filter batch to match successful trajectories
+                        if "idx" in final_gen_batch_output.non_tensor_batch:
+                            successful_idxs = final_gen_batch_output.non_tensor_batch["idx"].tolist()
+                            if len(successful_idxs) != len(batch.non_tensor_batch["uid"]):
+                                batch = batch.select_idxs(successful_idxs)
+                        
                         batch = batch.union(final_gen_batch_output)
                         metrics.update(generate_metrics)
 
@@ -319,7 +325,18 @@ class AgentPPOTrainer(RayPPOTrainer):
                                 size_mask = torch.zeros(batch.batch["input_ids"].shape[0], dtype=torch.bool)
                                 size_mask[:max_batch_size] = True
                                 batch = batch[size_mask]
-
+                        else:
+                            # Round down to the nearest multiple of world size even without rejection sampling
+                            num_trainer_replicas = self.actor_rollout_wg.world_size
+                            current_size = batch.batch["input_ids"].shape[0]
+                            max_batch_size = (current_size // num_trainer_replicas) * num_trainer_replicas
+                            if max_batch_size == 0 or max_batch_size < num_trainer_replicas:
+                                continue  # Skip this batch
+                            if current_size != max_batch_size:
+                                size_mask = torch.zeros(current_size, dtype=torch.bool)
+                                size_mask[:max_batch_size] = True
+                                batch = batch[size_mask]
+                        
                         # recompute old_log_probs
                         with _timer("old_log_prob", timing_raw):
                             old_log_prob = self.actor_rollout_wg.compute_log_prob(batch)
@@ -461,6 +478,11 @@ class AgentPPOTrainer(RayPPOTrainer):
             else:
                 test_output_gen_batch, _ = self.generate_agent_trajectory(meta_info=test_batch.meta_info)
 
+            if "idx" in test_output_gen_batch.non_tensor_batch:
+                successful_idxs = test_output_gen_batch.non_tensor_batch["idx"].tolist()
+                if len(successful_idxs) != len(test_batch.non_tensor_batch["uid"]):
+                    test_batch = test_batch.select_idxs(successful_idxs)
+            
             test_batch = test_batch.union(test_output_gen_batch)
 
             reward_tensor = test_batch.batch["token_level_scores"]
@@ -697,9 +719,11 @@ class AgentPPOTrainer(RayPPOTrainer):
             "traj_mask": traj_mask,
         }
 
+        non_tensor_batch = {"idx": np.array([traj["idx"] for traj in trajectories])}
+
         self.visualize_trajectory(DataProto.from_dict(tensors=tensor_batch))
 
-        return DataProto.from_dict(tensors=tensor_batch), metrics
+        return DataProto.from_dict(tensors=tensor_batch, non_tensors=non_tensor_batch), metrics
 
     def visualize_trajectory(self, tensor_batch, sample_idx=0, max_samples=1, mask_key="traj_mask"):
         """
