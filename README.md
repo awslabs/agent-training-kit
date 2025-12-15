@@ -178,7 +178,7 @@ During training on coding tasks, Strands Agents decide when to test their code u
 Agents called the testing tool in 11.4% of cases. When agents choose to test their code, over half (52.2%) pass immediately. The remaining catch critical issues: runtime errors (41.8%) and wrong outputs (5.6%) that would have resulted in failed submissions. This early error detection allows agents to debug and refine their solutions iteratively.
 
 
-## Trajectories 🔄
+## Coding Trajectories 🔄
 
 We provide two example trajectories demonstrating how trained agents interact with tools during problem-solving. The [two-step trajectory](examples/deepcoder/exp_traj_2_steps.json) shows a straightforward path where the agent's initial solution passes testing immediately, while the [three-step trajectory](examples/deepcoder/exp_traj_3_steps.json) demonstrates the agent's ability to recover from errors—catching an indentation issue through tool feedback, fixing it, and then submitting the corrected code. 
 
@@ -216,6 +216,33 @@ Here is what the three-step (`init-fix-submit`) trajectory looks like:
   }
 ]
 ```
+
+## Tau2-Bench Trajectories
+
+We provide two example trajectories from the Tau-2 test set after 18 steps of training on [Qwen/Qwen3-4B-Instruct-2507](https://huggingface.co/Qwen/Qwen3-4B-Instruct-2507)
+
+### [Airline Example](examples/tau2/exp_traj_airline_4_steps.json)
+**Task**: Customer wants to modify a one-stop flight reservation (LAS → IAH)
+
+| Step | Tool Call | Purpose |
+|------|-----------|---------|
+| 1 | `get_reservation_details` | Retrieve reservation info |
+| 2-4 | `get_flight_status` (×3) | Check status of each flight segment |
+
+The agent retrieves the reservation, verifies all flights are modifiable (status: available), then summarizes options for the customer. **4 tool calls total.**
+
+### [Retail Example](examples/tau2/exp_traj_retail_3_steps.json)
+**Task**: Customer wants to exchange white wireless earbuds for blue, same or lower price, preferring no water resistance
+
+| Step | Tool Call | Purpose |
+|------|-----------|---------|
+| 1 | `find_user_id_by_name_zip` | Authenticate customer |
+| 2 | `get_order_details` | Retrieve order info |
+| 3 | `get_product_details` | Find available blue variants |
+
+The agent authenticates the user, retrieves the order, looks up product variants, filters for blue options at or below the original price ($256.67), and recommends the non-water-resistant option ($242.92) per customer preference. **3 tool calls total.**
+
+Both traces demonstrate efficient tool usage—retrieving only necessary information before responding.
 
 ## Contributing
 
